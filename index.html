@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-	<script src="https://www.google.com/recaptcha/api.js"></script>
-</head>
+ <p id="scroll">テキスト</p>
+
+<script type="text/javascript">
+
+scrollBG();
+
+//背景画像を横スクロール
+function scrollBG() {
+	document.getElementById("scroll").style.height = "100px"; //*1 表示の高さ
+	document.getElementById("scroll").style.backgroundImage = "url(building.png)"; //*2 画像ファイル
+	document.getElementById("scroll").style.backgroundRepeat = "repeat-x"; //*3 横に連続して表示
+	
+	count = 0; //カウントの初期値
+	timerID = setInterval('scrollBG_countup()',500); //*4 0.5秒毎に呼び出し
+}
+
+function scrollBG_countup() {
+	count++; //増分
+	if (count > 99) count = 0; //カウントをリセット
+	document.getElementById("scroll").style.backgroundPosition = count + "px 0px"; //表示位置を変更
+}
+</script>
 <input type="checkbox" id="cp_navimenuid">
 <label class="menu" for="cp_navimenuid">
 
